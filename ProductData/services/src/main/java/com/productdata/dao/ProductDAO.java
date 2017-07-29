@@ -1,8 +1,11 @@
 package com.productdata.dao;
 
+import org.springframework.stereotype.Component;
+
 import com.productdata.model.Product;
 
-public class ProductDAO implements IProductDAO {
+@Component
+public class ProductDAO {
 
 	public String addProduct(Product product) {
 		// TODO Auto-generated method stub

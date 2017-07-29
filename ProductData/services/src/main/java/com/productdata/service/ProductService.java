@@ -1,17 +1,16 @@
 package com.productdata.service;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.productdata.dao.IProductDAO;
+import com.productdata.dao.ProductDAO;
 import com.productdata.model.Product;
 
-@Resource
-public class ProductService implements IProductService {
+@Service
+public class ProductService {
 
-	@Autowired 
-	IProductDAO productDAO;
+	@Autowired
+	ProductDAO productDAO;
 
 	public String addProduct(Product product) {
 		// TODO Auto-generated method stub

@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.productdata.model.Product;
-import com.productdata.service.IProductService;
+import com.productdata.service.ProductService;
 
 @RestController
 @RequestMapping(value = "/productdata")
-public class ProductController implements IProductController {
+public class ProductController{
 	@Autowired
-	IProductService productService;
+	ProductService productService;
 
 	@PostMapping("/product/add")
 	public String addProduct(@RequestBody Product product) {
