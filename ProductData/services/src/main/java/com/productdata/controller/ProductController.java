@@ -1,5 +1,7 @@
 package com.productdata.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,25 +10,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.productdata.model.Product;
+import com.productdata.entity.Product;
 import com.productdata.service.ProductService;
 
 @RestController
 @RequestMapping(value = "/productdata")
-public class ProductController{
+public class ProductController {
+	
 	@Autowired
 	ProductService productService;
 
 	@PostMapping("/product/add")
 	public String addProduct(@RequestBody Product product) {
-		// TODO Auto-generated method stub
 		return productService.addProduct(product);
 	}
 
 	@GetMapping("/product/{id}")
-	public Product getProductbyId(@PathVariable String id) {
-		// TODO Auto-generated method stub
-		return new Product(10, "Altaf");
+	public Product getProductbyId(@PathVariable Integer id) {
+		return productService.getProductbyId(id);
+	}
+
+	@GetMapping("/products/{name}")
+	public Product getProductbyName(@PathVariable String name) {
+		return productService.getProductbyName(name);
+	}
+
+	@GetMapping("/products")
+	public List<Product> getAllProduct() {
+		return productService.getAllProduct();
 	}
 
 }
